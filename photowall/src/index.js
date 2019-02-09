@@ -3,16 +3,10 @@ import ReactDOM from 'react-dom';
 
 const tasks = ['take out','take snow', 'take rain']
 
-const element = React.createElement('ol',null,tasks.map(
-    (task,index)=>
-    // Key should be unique.
-    React.createElement('li',{key: index},task)
-    ))
-
-// const element = React.createElement('ol',null,
-// React.createElement('li',null,"take out"),
-// React.createElement('li',null,"take snow"),
-// React.createElement('li',null,"take rain")
-// )
+const element = <ol>
+    {/* If array has duplicate entries key as task will fail so we use index */}
+    {tasks.map((task,index) => <li key ={index}>{task}</li>)}
+    {/* <li>{task[0]}</li> */}
+</ol>
 
 ReactDOM.render(element,document.getElementById("root"));

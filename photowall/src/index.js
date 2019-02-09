@@ -1,15 +1,40 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 const tasks = ['take out','take snow', 'take rain']
-// An element can only have one tag, with multiple sub tags in it.
-//So to have ol and h1 tag we have to just add a div tag.
-const element = 
-<div>
-    <h1>Hiii</h1>
-    <ol>
-        {tasks.map((task,index) => <li key ={index}>{task}</li>)}
-    </ol>
-</div>
 
-ReactDOM.render(element,document.getElementById("root"));
+
+//ES 6
+class List extends Component{
+    render(){
+        return (
+            <ol>
+                {tasks.map((task,index) => <li key ={index}>{task}</li>)}
+            </ol>
+
+        )
+    }
+
+}
+
+class Title extends Component{
+render(){
+    return(
+        <h1>Hiii</h1>
+    )
+}
+
+}
+
+class Main extends Component{
+    render(){
+        return <div>
+            <Title/>
+            <List/>
+            <List/>
+        </div>
+    }
+}
+
+
+ReactDOM.render(<Main/>,document.getElementById("root"));
